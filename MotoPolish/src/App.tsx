@@ -1,12 +1,16 @@
-import './App.css'
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
 
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col gap-5 items-center justify-center bg-blue-500 text-white text-4xl font-bold">
-      Tailwind CSS funcionando ✅
-    </div>
+    <BrowserRouter>
+      <div className="min-h-screen bg-zinc-950 text-white font-sans selection:bg-yellow-500 selection:text-black">
+        <Navbar /> 
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   )
 }
-
-

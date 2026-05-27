@@ -225,41 +225,61 @@ export default function Home() {
       </section>
 
       {/* --- LÍNEA DE TIEMPO --- */}
-      <section className="py-24 bg-zinc-950 relative overflow-hidden">
-        {/* Elemento decorativo de fondo */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl"></div>
+      <section className="py-32 bg-zinc-950 relative overflow-hidden border-t border-white/5">
+        {/* Elementos decorativos de fondo */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-yellow-500/10 rounded-full blur-[100px] opacity-50"></div>
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-yellow-500/5 rounded-full blur-[100px] opacity-50"></div>
+        
+        {/* Patrón de puntos o cuadrícula sutil */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-16">
-             <h2 className="text-3xl font-bold text-white mb-2">Nuestra Historia</h2>
-             <p className="text-gray-500">El camino de la excelencia desde 2005</p>
+          <div className="text-center mb-24">
+             <span className="text-yellow-500 font-bold tracking-wider text-sm uppercase">Trayectoria</span>
+             <h2 className="text-4xl md:text-5xl font-extrabold text-white mt-3 mb-4">Nuestra Historia</h2>
+             <div className="h-1 w-24 bg-yellow-500 mx-auto rounded-full mb-6"></div>
+             <p className="text-gray-400 text-lg max-w-2xl mx-auto">El camino de la excelencia, pasión y evolución constante desde el 2005.</p>
           </div>
           
-          <div className="relative">
-            {/* Línea central vertical */}
-            <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-transparent via-yellow-500/50 to-transparent" />
+          <div className="relative max-w-5xl mx-auto">
+            {/* Línea central vertical con gradiente */}
+            <div className="absolute left-[20px] md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-transparent via-yellow-500/30 to-transparent rounded-full" />
             
-            <div className="space-y-12">
+            <div className="space-y-16">
               {TIMELINE.map((item, idx) => (
                 <motion.div 
                   key={idx}
-                  initial={{ opacity: 0, x: idx % 2 === 0 ? -30 : 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6 }}
+                  transition={{ duration: 0.6, delay: idx * 0.1 }}
                   className={`relative flex flex-col md:flex-row items-start md:items-center ${idx % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
                 >
+                  {/* Espaciador para un lado */}
                   <div className="flex-1 w-full" />
                   
-                  {/* Punto en la línea */}
-                  <div className="absolute left-[13px] md:left-1/2 md:-ml-[6px] w-3 h-3 rounded-full bg-yellow-500 shadow-[0_0_10px_rgba(234,179,8,0.8)] z-10 mt-1.5 md:mt-0" />
+                  {/* Punto en la línea con animación */}
+                  <div className="absolute left-[12px] md:left-1/2 md:-ml-[10px] flex items-center justify-center mt-2 md:mt-0 z-20">
+                    <div className="w-5 h-5 rounded-full bg-zinc-950 border-4 border-yellow-500 shadow-[0_0_15px_rgba(234,179,8,0.6)] relative flex items-center justify-center">
+                        <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
+                        <div className="absolute inset-0 rounded-full border-2 border-yellow-500 animate-ping opacity-50"></div>
+                    </div>
+                  </div>
                   
-                  <div className="flex-1 w-full pl-12 md:pl-0 md:px-12">
-                    <div className="bg-zinc-900/80 p-6 rounded-2xl border border-white/5 hover:border-yellow-500/40 transition-all hover:-translate-y-1 relative overflow-hidden">
-                      <span className="text-6xl font-black text-white/5 absolute -top-4 -right-2 select-none">{item.year}</span>
-                      <span className="text-yellow-500 font-bold text-xl block mb-1 font-mono">{item.year}</span>
-                      <h3 className="text-white font-bold text-lg mb-2">{item.title}</h3>
-                      <p className="text-gray-400 text-sm leading-relaxed">{item.description}</p>
+                  {/* Tarjeta de contenido */}
+                  <div className={`flex-1 w-full pl-16 md:pl-0 ${idx % 2 === 0 ? 'md:pr-16 text-left md:text-right' : 'md:pl-16 text-left'}`}>
+                    <div className="group bg-zinc-900/60 backdrop-blur-xl p-8 rounded-3xl border border-white/10 hover:border-yellow-500/50 hover:bg-zinc-900/80 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_40px_-10px_rgba(234,179,8,0.2)] relative overflow-hidden">
+                      {/* Marca de agua del año */}
+                      <span className={`text-8xl font-black text-white/[0.03] absolute -bottom-4 select-none transition-transform duration-500 group-hover:scale-110 ${idx % 2 === 0 ? '-left-4' : '-right-4'}`}>
+                        {item.year}
+                      </span>
+                      
+                      <div className={`inline-block px-4 py-1 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-500 font-bold text-lg mb-4 font-mono shadow-[0_0_10px_rgba(234,179,8,0.1)]`}>
+                        {item.year}
+                      </div>
+                      
+                      <h3 className="text-white font-bold text-2xl mb-3 group-hover:text-yellow-500 transition-colors">{item.title}</h3>
+                      <p className="text-gray-400 text-base leading-relaxed relative z-10">{item.description}</p>
                     </div>
                   </div>
                 </motion.div>

@@ -104,7 +104,7 @@ export default function Home() {
                 </div>
 
                 <motion.div 
-                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, margin: "-50px" }}
@@ -117,51 +117,72 @@ export default function Home() {
                       <motion.div 
                         key={sIdx} 
                         variants={fadeIn}
-                        className="relative bg-zinc-900/50 backdrop-blur-xl p-8 rounded-3xl border border-white/5 hover:border-yellow-500/30 hover:bg-zinc-900/80 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(234,179,8,0.15)] group flex flex-col overflow-hidden"
+                        className="relative rounded-3xl overflow-hidden group aspect-[3/4] border border-white/10 hover:border-yellow-500/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(234,179,8,0.3)]"
                       >
-                        {/* Brillo sutil de la tarjeta en hover */}
-                        <div className="absolute top-0 right-0 w-48 h-48 bg-yellow-500/5 rounded-full blur-[60px] group-hover:bg-yellow-500/10 transition-all duration-500"></div>
+                        {/* Imagen de fondo dinámica */}
+                        <div className="absolute inset-0 bg-zinc-900">
+                          {/* @ts-ignore */}
+                          <img 
+                            src={service.image} 
+                            alt={service.title} 
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                          />
+                          {/* Gradiente oscuro para que el texto sea legible */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90 group-hover:opacity-75 transition-opacity duration-500"></div>
+                        </div>
 
+                        {/* Etiqueta Nuevo */}
                         {/* @ts-ignore */}
                         {service.isNew && (
-                          <div className="absolute top-6 right-6 flex items-center gap-2">
-                            <span className="text-[10px] font-bold text-yellow-500 tracking-widest uppercase">NUEVO</span>
-                            <span className="relative flex h-2 w-2">
+                          <div className="absolute top-3 right-3 flex items-center gap-1.5 z-20 bg-black/50 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-yellow-500/30">
+                            <span className="text-[9px] font-bold text-yellow-500 tracking-widest uppercase">NUEVO</span>
+                            <span className="relative flex h-1.5 w-1.5">
                               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
-                              <span className="relative inline-flex rounded-full h-2 w-2 bg-yellow-500"></span>
+                              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-yellow-500"></span>
                             </span>
                           </div>
                         )}
 
-                        <div className="flex flex-col mb-6 relative z-10">
-                          <div className="bg-gradient-to-br from-zinc-800 to-zinc-900 w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500 shadow-inner border border-white/5 mb-6 group-hover:border-yellow-500/30 group-hover:shadow-[0_0_20px_rgba(234,179,8,0.2)]">
-                            <Icon className="text-gray-400 group-hover:text-yellow-500 transition-colors duration-500" size={32} strokeWidth={1.5} />
-                          </div>
-                          
-                          <h4 className="text-xl font-bold text-white mb-3 group-hover:text-yellow-500 transition-colors">
-                            {service.title}
-                          </h4>
-                          <p className="text-gray-400 text-sm leading-relaxed flex-grow">
-                            {service.desc}
-                          </p>
-                        </div>
-                        
-                        <div className="mt-auto pt-6 border-t border-white/5 flex items-center justify-between relative z-10">
-                          <div className="flex flex-col">
-                            <span className="text-[10px] text-gray-500 uppercase tracking-widest font-semibold mb-1">Inversión desde</span>
-                            <span className="text-2xl font-black text-white font-mono tracking-tight group-hover:text-yellow-500 transition-colors">
-                              {service.price}
-                            </span>
-                          </div>
+                        {/* Contenido (Aparece y se desliza hacia arriba) */}
+                        <div className="absolute inset-0 p-5 flex flex-col justify-end z-10">
+                          <div className="transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                            
+                            {/* Icono animado */}
+                            <div className="bg-yellow-500/10 w-10 h-10 rounded-xl flex items-center justify-center border border-yellow-500/20 mb-3 backdrop-blur-md group-hover:bg-yellow-500 group-hover:scale-110 transition-all duration-500 shadow-[0_0_15px_rgba(234,179,8,0.2)]">
+                              <Icon className="text-yellow-500 group-hover:text-black transition-colors duration-500" size={20} strokeWidth={2} />
+                            </div>
+                            
+                            <h4 className="text-xl font-bold text-white mb-2 leading-tight drop-shadow-md">
+                              {service.title}
+                            </h4>
+                            
+                            {/* Descripción visible solo al hacer hover */}
+                            <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-500 ease-out">
+                              <div className="overflow-hidden">
+                                <p className="text-gray-200 text-xs leading-relaxed mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                                  {service.desc}
+                                </p>
+                              </div>
+                            </div>
+                            
+                            <div className="flex items-center justify-between border-t border-white/20 pt-3 mt-1">
+                              <div className="flex flex-col">
+                                <span className="text-[9px] text-gray-300 uppercase tracking-widest font-semibold mb-0.5 drop-shadow-md">Inversión desde</span>
+                                <span className="text-lg font-black text-yellow-500 font-mono tracking-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                                  {service.price}
+                                </span>
+                              </div>
 
-                          <a 
-                              href={`${COMPANY_INFO.whatsappUrl}?text=Hola, me interesa cotizar el servicio de ${service.title}`} 
-                              target="_blank" 
-                              className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-gray-300 hover:bg-yellow-500 hover:text-black hover:scale-110 transition-all duration-300 group/link border border-white/5 hover:border-yellow-500"
-                              title="Cotizar Servicio"
-                          >
-                              <ArrowRight size={20} className="group-hover/link:translate-x-1 transition-transform" />
-                          </a>
+                              <a 
+                                  href={`${COMPANY_INFO.whatsappUrl}?text=Hola, me interesa cotizar el servicio de ${service.title}`} 
+                                  target="_blank" 
+                                  className="w-8 h-8 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center text-white hover:bg-yellow-500 hover:text-black hover:scale-110 transition-all duration-300 group/link border border-white/20 hover:border-yellow-500"
+                                  title="Cotizar Servicio"
+                              >
+                                  <ArrowRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
+                              </a>
+                            </div>
+                          </div>
                         </div>
                       </motion.div>
                     );

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Menu, X, Car, User, LogIn, LayoutDashboard, LogOut } from 'lucide-react';
+import { Menu, X, User, LogIn, LayoutDashboard, LogOut } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { signOut } from 'firebase/auth';
 import { auth } from '../firebase/config';
@@ -26,8 +26,8 @@ export default function Navbar() {
           
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="bg-white p-1.5 rounded-xl shadow-[0_0_15px_rgba(255,255,255,0.1)] group-hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all">
-              <img src="/PNG A COLOR.png" alt="MotoPolish" className="h-10 w-auto object-contain" />
+            <div className="bg-white p-0.5 rounded-xl shadow-[0_0_15px_rgba(255,255,255,0.1)] group-hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all">
+              <img src="/PNG A COLOR.png" alt="MotoPolish" className="h-10 w-auto object-contain scale-110" />
             </div>
             <span className="text-2xl font-bold tracking-tighter text-white hidden sm:block">
               MOTO<span className="text-yellow-500">POLISH</span>
@@ -39,7 +39,7 @@ export default function Navbar() {
             <div className="ml-10 flex items-center space-x-8">
               <Link 
                 to="/" 
-                onClick={(e) => {
+                onClick={() => {
                   if (window.location.pathname === '/') {
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }
@@ -50,6 +50,7 @@ export default function Navbar() {
               </Link>
               <a href="/#servicios" className="text-white hover:text-yellow-500 transition-colors px-3 py-2 rounded-md text-sm font-medium">Servicios</a>
               <a href="/#productos" className="text-white hover:text-yellow-500 transition-colors px-3 py-2 rounded-md text-sm font-medium">Tienda</a>
+              <Link to="/resenas" className="text-white hover:text-yellow-500 transition-colors px-3 py-2 rounded-md text-sm font-medium">Reseñas</Link>
               <a href="/#nosotros" className="text-white hover:text-yellow-500 transition-colors px-3 py-2 rounded-md text-sm font-medium">Nosotros</a>
               
               <div className="flex items-center gap-3 ml-4 pl-4 border-l border-white/10">
@@ -116,6 +117,7 @@ export default function Navbar() {
             </Link>
             <a href="/#servicios" className="block px-3 py-3 text-white hover:text-yellow-500 border-b border-white/5" onClick={() => setIsOpen(false)}>Servicios</a>
             <a href="/#productos" className="block px-3 py-3 text-white hover:text-yellow-500 border-b border-white/5" onClick={() => setIsOpen(false)}>Tienda</a>
+            <Link to="/resenas" className="block px-3 py-3 text-white hover:text-yellow-500 border-b border-white/5" onClick={() => setIsOpen(false)}>Reseñas</Link>
             
             <div className="pt-4 grid grid-cols-2 gap-3">
               {!user ? (

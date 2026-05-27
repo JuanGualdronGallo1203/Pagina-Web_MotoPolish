@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
-import { collection, getDocs, addDoc, updateDoc, doc, serverTimestamp, query, where, orderBy } from 'firebase/firestore';
+import { collection, getDocs, addDoc, updateDoc, doc, serverTimestamp, query, where } from 'firebase/firestore';
 import { db } from '../../firebase/config';
 import { Calendar, Clock, Check, X, AlertCircle, Loader2, CalendarClock, ArrowRight } from 'lucide-react';
 

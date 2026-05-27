@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { auth, db } from '../firebase/config'; 
-import { User, Mail, Lock, Loader2, AlertCircle, ArrowLeft, Eye, EyeOff, Phone, Calendar, FileText, Hash, Globe, MapPin, Car } from 'lucide-react';
+import { User, Mail, Lock, Loader2, AlertCircle, ArrowLeft, Eye, EyeOff, Phone, Hash, Globe, MapPin, Car } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function Register() {

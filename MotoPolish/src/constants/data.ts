@@ -43,42 +43,42 @@ export const SERVICES = [
     category: "Estética de Motos",
     description: "Cuidado detallado para dejar tu moto como nueva.",
     items: [
-      { title: "Embellecimiento General", price: "$105.000", desc: "Limpieza profunda, desengrase y brillo.", icon: Sparkles },
-      { title: "Pintura de Tanque", price: "$190.000", desc: "Restauración de color y acabado profesional.", icon: PaintBucket },
-      { title: "Latonería de Tanques", price: "$50.000", desc: "Eliminación de golpes y abolladuras.", icon: Wrench },
-      { title: "Polichado Pastas Inyectadas", price: "$90.000", desc: "Recuperación de brillo en plásticos.", icon: Gem },
-      { title: "Pintura Pastas de Moto", price: "$95.000", desc: "Renovación de color en plásticos laterales.", icon: PaintBucket },
-      { title: "Restauración Fibra de Vidrio", price: "$18.000", desc: "Reconstrucción y reparación de piezas.", icon: Wrench },
+      { title: "Embellecimiento General", price: "$105.000", desc: "Limpieza profunda, desengrase y brillo.", icon: Sparkles, image: "/EMBELLECIMIENTO GENERAL DE MOTOS.png" },
+      { title: "Pintura de Tanque", price: "$190.000", desc: "Restauración de color y acabado profesional.", icon: PaintBucket, image: "/PINTURA DE TANQUE DE MOTOS.png" },
+      { title: "Latonería de Tanques", price: "$50.000", desc: "Eliminación de golpes y abolladuras.", icon: Wrench, image: "/LATONERIA DE TANQUES DE MOTO.png" },
+      { title: "Polichado Pastas Inyectadas", price: "$90.000", desc: "Recuperación de brillo en plásticos.", icon: Gem, image: "/POLICHADO DE PASTAS INYECTADAS.png" },
+      { title: "Pintura Pastas de Moto", price: "$95.000", desc: "Renovación de color en plásticos laterales.", icon: PaintBucket, image: "/PINTURA DE PASTAS PARA MOTO.png" },
+      { title: "Restauración Fibra de Vidrio", price: "$18.000", desc: "Reconstrucción y reparación de piezas.", icon: Wrench, image: "/RESTAURACIÓN EN FIBRA DE VIDRIO.png" },
     ]
   },
   {
     category: "Personalización Exclusiva",
     description: "Dale un estilo único con técnicas avanzadas.",
     items: [
-      { title: "Pintura Hidroimpresión", price: "$70.000", desc: "Técnica novedosa de transferencia por agua.", icon: Droplets, isNew: true },
-      { title: "Pintura Efecto Cromado", price: "$150.000", desc: "Acabado espejo de alta reflectividad.", icon: Star },
-      { title: "Diseño Personalizado", price: "$80.000", desc: "Aerografía y diseños únicos a medida.", icon: PaintBucket },
-      { title: "Colores Personalizados", price: "$105.000", desc: "Mezclas exclusivas para un tono único.", icon: PaintBucket },
-      { title: "Pintura de Rines", price: "$50.000", desc: "Personalización de rines (par).", icon: DiscIcon },
+      { title: "Pintura Hidroimpresión", price: "$70.000", desc: "Técnica novedosa de transferencia por agua.", icon: Droplets, isNew: true, image: "/PINTURA EN HIDROIMPRESION.png" },
+      { title: "Pintura Efecto Cromado", price: "$150.000", desc: "Acabado espejo de alta reflectividad.", icon: Star, image: "/PINTURA EFECTO CROMADO.png" },
+      { title: "Diseño Personalizado", price: "$80.000", desc: "Aerografía y diseños únicos a medida.", icon: PaintBucket, image: "/DISEÑO PERSONALIZADO EN PINTURA AUTOMOTRIZ.png" },
+      { title: "Colores Personalizados", price: "$105.000", desc: "Mezclas exclusivas para un tono único.", icon: PaintBucket, image: "/PINTURA CON COLORES PERSONALIZADOS.png" },
+      { title: "Pintura de Rines", price: "$50.000", desc: "Personalización de rines (par).", icon: DiscIcon, image: "/PINTURA PERSONALIZADA DE RINES.png" },
     ]
   },
   {
     category: "Línea Automotriz (Carros)",
     description: "Soluciones profesionales para automóviles.",
     items: [
-      { title: "Detallado Completo", price: "$450.000", desc: "Pulido, polichado, encerado y cerámico.", icon: Car },
-      { title: "Pintura de Módulos", price: "$370.000", desc: "Pintura por pieza (puerta, capó, etc).", icon: PaintBucket },
-      { title: "Latonería de Módulos", price: "$170.000", desc: "Reparación de golpes en carrocería.", icon: Wrench },
-      { title: "Pulida de Farola", price: "$50.000", desc: "Recuperación de transparencia y luz.", icon: Zap },
+      { title: "Detallado Completo", price: "$450.000", desc: "Pulido, polichado, encerado y cerámico.", icon: Car, image: "/PULIDO, POLICHADO, ENCERADO Y CERAMICO AUTOMOTRIZ.png" },
+      { title: "Pintura de Módulos", price: "$370.000", desc: "Pintura por pieza (puerta, capó, etc).", icon: PaintBucket, image: "/PINTURA DE MÓDULOS AUTOMOTRIZ.png" },
+      { title: "Latonería de Módulos", price: "$170.000", desc: "Reparación de golpes en carrocería.", icon: Wrench, image: "/LATONERIA DE MÓDULOS PARA VEHÍCULOS.png" },
+      { title: "Pulida de Farola", price: "$50.000", desc: "Recuperación de transparencia y luz.", icon: Zap, image: "/PULIDA DE FAROLAS DE CARROS.png" },
     ]
   },
   {
     category: "Motor & Farolas",
     description: "Mantenimiento y limpieza técnica.",
     items: [
-      { title: "Lavado Vapor Motor", price: "$140.000", desc: "Limpieza profunda y segura con vapor.", icon: CloudFog },
-      { title: "Desmanchado Vapor Motor", price: "$190.000", desc: "Eliminación de manchas difíciles y grasa.", icon: Flame },
-      { title: "Restauración Farolas (Moto)", price: "$40.000", desc: "Pulido y protección UV.", icon: Zap },
+      { title: "Lavado Vapor Motor", price: "$140.000", desc: "Limpieza profunda y segura con vapor.", icon: CloudFog, image: "/LAVADO DE MOTOR A VAPOR.png" },
+      { title: "Desmanchado Vapor Motor", price: "$190.000", desc: "Eliminación de manchas difíciles y grasa.", icon: Flame, image: "/DESMANCHADO A VAPOR DE MOTOR.png" },
+      { title: "Restauración Farolas (Moto)", price: "$40.000", desc: "Pulido y protección UV.", icon: Zap, image: "/RESTAURACIÓN DE FAROLAS PARA MOTOS.png" },
     ]
   }
 ];

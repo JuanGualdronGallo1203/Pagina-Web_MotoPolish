@@ -11,6 +11,8 @@ import AdminClients from './pages/dashboard/AdminClients';
 import AdminJobs from './pages/dashboard/AdminJobs';
 import ProfileSettings from './pages/dashboard/ProfileSettings';
 import Appointments from './pages/dashboard/Appointments';
+import ReviewsPublic from './pages/ReviewsPublic';
+import DashboardReviews from './pages/dashboard/DashboardReviews';
 
 export default function App() {
   return (
@@ -21,6 +23,7 @@ export default function App() {
             <Route path="/" element={<><Navbar /><Home /></>} />
             <Route path="/login" element={<><Navbar /><Login /></>} />
             <Route path="/registro" element={<><Navbar /><Register /></>} />
+            <Route path="/resenas" element={<><Navbar /><ReviewsPublic /></>} />
             
             {/* Rutas Privadas del Dashboard */}
             <Route 
@@ -67,6 +70,10 @@ export default function App() {
               <Route 
                 path="calendario" 
                 element={<Appointments />} 
+              />
+              <Route 
+                path="resenas" 
+                element={<DashboardReviews />} 
               />
             </Route>
           </Routes>

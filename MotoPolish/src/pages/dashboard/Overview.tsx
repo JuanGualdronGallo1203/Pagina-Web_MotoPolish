@@ -55,7 +55,7 @@ export default function Overview() {
         if (!isAdmin) {
           const qNotif = query(collection(db, 'notifications'), where('userId', '==', user.uid));
           const notifSnap = await getDocs(qNotif);
-          let notifData = notifSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+          let notifData: any[] = notifSnap.docs.map(d => ({ id: d.id, ...d.data() }));
           notifData.sort((a, b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0));
           setNotifications(notifData.slice(0, 10)); // Mostrar las últimas 10
         }

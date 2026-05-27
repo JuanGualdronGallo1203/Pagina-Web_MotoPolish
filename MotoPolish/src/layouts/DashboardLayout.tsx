@@ -13,7 +13,8 @@ import {
   X,
   Car,
   User,
-  CalendarDays
+  CalendarDays,
+  MessageSquare
 } from 'lucide-react';
 
 export default function DashboardLayout() {
@@ -34,11 +35,13 @@ export default function DashboardLayout() {
         { name: 'Calendario', path: '/dashboard/calendario', icon: CalendarDays },
         { name: 'Trabajos', path: '/dashboard/trabajos', icon: Briefcase },
         { name: 'Clientes', path: '/dashboard/clientes', icon: Users },
+        { name: 'Reseñas', path: '/dashboard/resenas', icon: MessageSquare },
         { name: 'Configuración', path: '/dashboard/configuracion', icon: Settings },
       ]
     : [
         { name: 'Mis Vehículos', path: '/dashboard', icon: Car },
         { name: 'Agendamiento', path: '/dashboard/calendario', icon: CalendarDays },
+        { name: 'Mis Reseñas', path: '/dashboard/resenas', icon: MessageSquare },
         { name: 'Mi Perfil', path: '/dashboard/perfil', icon: User },
       ];
 
@@ -46,8 +49,8 @@ export default function DashboardLayout() {
     <>
       <div className="p-6 bg-zinc-950/50">
         <Link to="/" className="flex items-center gap-3 group">
-          <div className="bg-white p-1.5 rounded-xl shadow-sm group-hover:scale-105 transition-transform">
-            <img src="/PNG A COLOR.png" alt="MotoPolish" className="h-8 w-auto object-contain" />
+          <div className="bg-white p-0.5 rounded-xl shadow-sm group-hover:scale-105 transition-transform">
+            <img src="/PNG A COLOR.png" alt="MotoPolish" className="h-8 w-auto object-contain scale-110" />
           </div>
           <span className="text-xl font-bold tracking-tighter text-white">
             MOTO<span className="text-yellow-500">POLISH</span>
@@ -109,8 +112,8 @@ export default function DashboardLayout() {
       {/* Header Móvil */}
       <div className="md:hidden fixed top-0 w-full bg-zinc-900 border-b border-white/5 z-50 flex items-center justify-between p-4 shadow-lg shadow-black/20">
         <Link to="/" className="flex items-center gap-3">
-          <div className="bg-white p-1 rounded-lg">
-            <img src="/PNG A COLOR.png" alt="MotoPolish" className="h-7 w-auto object-contain" />
+          <div className="bg-white p-0.5 rounded-lg">
+            <img src="/PNG A COLOR.png" alt="MotoPolish" className="h-7 w-auto object-contain scale-110" />
           </div>
           <span className="text-lg font-bold text-white tracking-tighter">
             MOTO<span className="text-yellow-500">POLISH</span>

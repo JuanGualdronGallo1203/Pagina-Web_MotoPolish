@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
-import { Briefcase, Clock, CheckCircle, FileText, Bell, Car, Info, Check, Trash2 } from 'lucide-react';
+import { Briefcase, Clock, CheckCircle, FileText, Bell, Car, Info, Check, Trash2, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { collection, query, where, getDocs, orderBy, limit, doc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { db } from '../../firebase/config';
@@ -164,8 +164,11 @@ export default function Overview() {
               </p>
             </div>
           ) : (
-            <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse">
+            <div className="overflow-x-auto relative">
+              <div className="md:hidden text-[10px] text-yellow-500 mb-2 flex items-center justify-end gap-1 font-medium uppercase tracking-wider px-4 mt-2">
+                Desliza para ver más <ArrowRight size={12} />
+              </div>
+              <table className="w-full text-left border-collapse min-w-[500px]">
                 <thead>
                   <tr className="border-b border-white/5 text-gray-400 text-sm">
                     {isAdmin && <th className="pb-3 font-semibold">Cliente</th>}

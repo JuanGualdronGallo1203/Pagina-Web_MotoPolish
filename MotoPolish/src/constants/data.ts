@@ -82,3 +82,76 @@ export const SERVICES = [
     ]
   }
 ];
+
+export const PRODUCTS = [
+  {
+    title: "Shampoo con Cera Autobrillante Simoniz",
+    desc: "Shampoo premium con cera – Protección real para tu pintura.",
+    image: "/shampoo.png"
+  },
+  {
+    title: "Llaveros de Cuello",
+    desc: "Estilo que representa tu pasión. Diseños exclusivos de marcas reconocidas.",
+    image: "/llaveros.png"
+  },
+  {
+    title: "Tapas de Tornillo Cromadas",
+    desc: "Detalles premium para tu vehículo. Acabado brillante y protección anticorrosiva.",
+    image: "/tapas_tor.png"
+  },
+  {
+    title: "Puños de Manillar MOXI",
+    desc: "Más control, comodidad y estilo en cada ruta.",
+    image: "/manillar.png"
+  },
+  {
+    title: "Ambientador Simoniz Auto Fresco",
+    desc: "Con ventilador integrado. Frescura y estilo en cada viaje.",
+    image: "/ambientador.png"
+  },
+  {
+    title: "Motoled MI45-H4-H/L Bombillo LED",
+    desc: "Potencia, seguridad y estilo para tu moto. Iluminación superior de alta intensidad.",
+    image: "/motoled.png"
+  },
+  {
+    title: "Motoled M4 Plus Bombillo LED",
+    desc: "Más visibilidad, más seguridad y más estilo en carretera nocturna.",
+    image: "/bombillo.png"
+  },
+  {
+    title: "Ambientador en Spray Simoniz",
+    desc: "Frescura premium para cada viaje. Aromas intensos y duraderos.",
+    image: "/ambientandorspry.png"
+  },
+  {
+    title: "Tapones de Válvula MOXI",
+    desc: "Tapones decorativos deportivos. Personaliza tu estilo hasta el último detalle.",
+    image: "/tapones_val.png"
+  },
+  {
+    title: "Tapones de Válvula Premium",
+    desc: "Detalles que hacen la diferencia. Diseño táctico en acabado dorado.",
+    image: "/tapones_val_premiun.png"
+  },
+  {
+    title: "Ambientadores en Gel Simoniz Auto Fresco",
+    desc: "Frescura que se siente en cada viaje. Neutraliza olores y dura más.",
+    image: "/ambientadorgel.png"
+  },
+  {
+    title: "Shampoo Auto Repele Polvo Simoniz",
+    desc: "Limpieza segura y brillo duradero. Fórmula antiestática especializada.",
+    image: "/shampooantipolvo.png"
+  },
+  {
+    title: "Sikaflex Solo",
+    desc: "Adhesivo de poliuretano premium para parabrisas automotrices.",
+    image: "/sikaflex.png"
+  },
+  {
+    title: "Manilares Universales en Aluminio",
+    desc: "Estilo, control y personalidad para tu moto. Diseño ergonómico.",
+    image: "/manilares.png"
+  }
+];

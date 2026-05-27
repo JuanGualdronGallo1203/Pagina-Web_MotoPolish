@@ -10,6 +10,7 @@ import Overview from './pages/dashboard/Overview';
 import AdminClients from './pages/dashboard/AdminClients';
 import AdminJobs from './pages/dashboard/AdminJobs';
 import ProfileSettings from './pages/dashboard/ProfileSettings';
+import Appointments from './pages/dashboard/Appointments';
 
 export default function App() {
   return (
@@ -62,6 +63,10 @@ export default function App() {
                     <ProfileSettings />
                   </ProtectedRoute>
                 } 
+              />
+              <Route 
+                path="calendario" 
+                element={<Appointments />} 
               />
             </Route>
           </Routes>

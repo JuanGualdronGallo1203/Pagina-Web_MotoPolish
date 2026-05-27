@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, MessageCircle } from 'lucide-react';
-import { COMPANY_INFO, SERVICES, TIMELINE, VALUES } from '../constants/data';
+import { COMPANY_INFO, SERVICES, TIMELINE, VALUES, PRODUCTS } from '../constants/data';
 import Footer from '../components/Footer';
 
 // Variantes de animación para reutilizar
@@ -170,6 +170,64 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* --- CATÁLOGO DE PRODUCTOS --- */}
+      <section id="productos" className="py-24 bg-zinc-950 relative overflow-hidden border-t border-white/5">
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <span className="text-yellow-500 font-bold tracking-wider text-sm uppercase">Tienda Oficial</span>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-white mt-3 mb-4">Catálogo de Productos</h2>
+            <div className="h-1 w-24 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto rounded-full mb-6"></div>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              Equipa y cuida tu vehículo con los mejores accesorios y productos certificados del mercado.
+            </p>
+          </div>
+
+          <motion.div 
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={staggerContainer}
+          >
+            {PRODUCTS.map((prod, idx) => (
+              <motion.div 
+                key={idx} 
+                variants={fadeIn}
+                className="bg-zinc-900 border border-white/5 rounded-3xl overflow-hidden group hover:border-yellow-500/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(234,179,8,0.15)] flex flex-col"
+              >
+                {/* Imagen del Producto */}
+                <div className="h-64 overflow-hidden relative bg-black flex items-center justify-center">
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent z-10 opacity-80"></div>
+                  <img 
+                    src={prod.image} 
+                    alt={prod.title} 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 z-0"
+                  />
+                </div>
+                
+                {/* Detalles del Producto */}
+                <div className="p-6 flex flex-col flex-grow relative z-20 bg-zinc-900">
+                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-yellow-500 transition-colors line-clamp-2">
+                    {prod.title}
+                  </h3>
+                  <p className="text-sm text-gray-400 mb-6 flex-grow">
+                    {prod.desc}
+                  </p>
+                  
+                  <a 
+                    href={`${COMPANY_INFO.whatsappUrl}?text=Hola, estoy interesado en comprar el producto: ${prod.title}`} 
+                    target="_blank"
+                    className="w-full py-3 rounded-xl font-bold text-black bg-white hover:bg-yellow-500 transition-colors flex items-center justify-center gap-2"
+                  >
+                    Comprar Ahora <ArrowRight size={16} />
+                  </a>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 

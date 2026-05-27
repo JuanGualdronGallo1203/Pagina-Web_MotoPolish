@@ -12,7 +12,8 @@ import {
   Menu, 
   X,
   Car,
-  User
+  User,
+  CalendarDays
 } from 'lucide-react';
 
 export default function DashboardLayout() {
@@ -30,12 +31,14 @@ export default function DashboardLayout() {
   const navItems = role === 'admin' 
     ? [
         { name: 'Vista General', path: '/dashboard', icon: LayoutDashboard },
+        { name: 'Calendario', path: '/dashboard/calendario', icon: CalendarDays },
         { name: 'Trabajos', path: '/dashboard/trabajos', icon: Briefcase },
         { name: 'Clientes', path: '/dashboard/clientes', icon: Users },
         { name: 'Configuración', path: '/dashboard/configuracion', icon: Settings },
       ]
     : [
-        { name: 'Mis Trabajos', path: '/dashboard', icon: Briefcase },
+        { name: 'Mis Vehículos', path: '/dashboard', icon: Car },
+        { name: 'Agendamiento', path: '/dashboard/calendario', icon: CalendarDays },
         { name: 'Mi Perfil', path: '/dashboard/perfil', icon: User },
       ];
 

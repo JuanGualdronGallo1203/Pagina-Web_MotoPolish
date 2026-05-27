@@ -49,6 +49,7 @@ export default function Navbar() {
                 Inicio
               </Link>
               <a href="/#servicios" className="text-white hover:text-yellow-500 transition-colors px-3 py-2 rounded-md text-sm font-medium">Servicios</a>
+              <a href="/#productos" className="text-white hover:text-yellow-500 transition-colors px-3 py-2 rounded-md text-sm font-medium">Tienda</a>
               <a href="/#nosotros" className="text-white hover:text-yellow-500 transition-colors px-3 py-2 rounded-md text-sm font-medium">Nosotros</a>
               
               <div className="flex items-center gap-3 ml-4 pl-4 border-l border-white/10">
@@ -114,6 +115,7 @@ export default function Navbar() {
               Inicio
             </Link>
             <a href="/#servicios" className="block px-3 py-3 text-white hover:text-yellow-500 border-b border-white/5" onClick={() => setIsOpen(false)}>Servicios</a>
+            <a href="/#productos" className="block px-3 py-3 text-white hover:text-yellow-500 border-b border-white/5" onClick={() => setIsOpen(false)}>Tienda</a>
             
             <div className="pt-4 grid grid-cols-2 gap-3">
               {!user ? (

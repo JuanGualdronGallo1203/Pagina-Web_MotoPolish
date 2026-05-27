@@ -7,6 +7,9 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Overview from './pages/dashboard/Overview';
+import AdminClients from './pages/dashboard/AdminClients';
+import AdminJobs from './pages/dashboard/AdminJobs';
+import ProfileSettings from './pages/dashboard/ProfileSettings';
 
 export default function App() {
   return (
@@ -28,7 +31,38 @@ export default function App() {
               }
             >
               <Route index element={<Overview />} />
-              {/* Aquí añadiremos las otras rutas más adelante */}
+              <Route 
+                path="clientes" 
+                element={
+                  <ProtectedRoute allowedRoles={['admin']}>
+                    <AdminClients />
+                  </ProtectedRoute>
+                } 
+              />
+              <Route 
+                path="trabajos" 
+                element={
+                  <ProtectedRoute allowedRoles={['admin']}>
+                    <AdminJobs />
+                  </ProtectedRoute>
+                } 
+              />
+              <Route 
+                path="configuracion" 
+                element={
+                  <ProtectedRoute allowedRoles={['admin']}>
+                    <ProfileSettings />
+                  </ProtectedRoute>
+                } 
+              />
+              <Route 
+                path="perfil" 
+                element={
+                  <ProtectedRoute allowedRoles={['client']}>
+                    <ProfileSettings />
+                  </ProtectedRoute>
+                } 
+              />
             </Route>
           </Routes>
         </div>

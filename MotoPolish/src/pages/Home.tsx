@@ -70,84 +70,97 @@ export default function Home() {
       </section>
 
       {/* --- SERVICIOS CON PRECIOS --- */}
-      <section id="servicios" className="py-24 bg-zinc-950 relative">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Nuestros Servicios</h2>
-            <div className="h-1 w-24 bg-yellow-500 mx-auto rounded-full mb-4"></div>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              Utilizamos productos certificados de marcas como Symplex, 3M, Simoniz, Pintuco y Glasurit.
+      <section id="servicios" className="py-32 bg-zinc-950 relative overflow-hidden">
+        {/* Luces de fondo ambientales */}
+        <div className="absolute top-1/4 left-0 w-[600px] h-[600px] bg-yellow-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="absolute bottom-1/4 right-0 w-[600px] h-[600px] bg-zinc-800/50 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-24">
+            <span className="text-yellow-500 font-bold tracking-wider text-sm uppercase">Catálogo</span>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-white mt-3 mb-4">Nuestros Servicios</h2>
+            <div className="h-1 w-24 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto rounded-full mb-6"></div>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              Utilizamos productos certificados de clase mundial como Symplex, 3M, Simoniz, Pintuco y Glasurit.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-20">
+          <div className="grid grid-cols-1 gap-24">
             {SERVICES.map((category, idx) => (
               <div key={idx} className="relative">
-                {/* Título de Categoría Decorativo */}
-                <div className="mb-10 flex items-end gap-4 border-b border-gray-800 pb-4">
-                  <h3 className="text-3xl font-bold text-white">
-                    {category.category}
-                  </h3>
-                  <span className="text-gray-500 text-sm pb-1 hidden sm:block">
-                    — {category.description}
+                {/* Título de Categoría Moderno */}
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12 pb-6 border-b border-white/10">
+                  <div>
+                    <h3 className="text-3xl font-extrabold text-white tracking-tight flex items-center gap-4">
+                      <span className="w-10 h-10 rounded-xl bg-yellow-500/10 text-yellow-500 flex items-center justify-center border border-yellow-500/20 text-lg">
+                        0{idx + 1}
+                      </span>
+                      {category.category}
+                    </h3>
+                  </div>
+                  <span className="text-gray-400 text-sm md:text-right max-w-md font-medium">
+                    {category.description}
                   </span>
                 </div>
 
                 <motion.div 
-                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, margin: "-50px" }}
                   variants={staggerContainer}
                 >
                   {category.items.map((service, sIdx) => {
-                    // CORRECCIÓN: Asignamos el icono a una variable con mayúscula
                     const Icon = service.icon;
                     
                     return (
                       <motion.div 
                         key={sIdx} 
                         variants={fadeIn}
-                        className="relative bg-zinc-900/40 p-6 rounded-2xl border border-white/5 hover:border-yellow-500/50 hover:bg-zinc-900/80 transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/5 group flex flex-col"
+                        className="relative bg-zinc-900/50 backdrop-blur-xl p-8 rounded-3xl border border-white/5 hover:border-yellow-500/30 hover:bg-zinc-900/80 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(234,179,8,0.15)] group flex flex-col overflow-hidden"
                       >
-                        {/* Badge de Nuevo (Hidroimpresión) */}
+                        {/* Brillo sutil de la tarjeta en hover */}
+                        <div className="absolute top-0 right-0 w-48 h-48 bg-yellow-500/5 rounded-full blur-[60px] group-hover:bg-yellow-500/10 transition-all duration-500"></div>
+
                         {/* @ts-ignore */}
                         {service.isNew && (
-                          <span className="absolute -top-3 -right-3 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-full animate-pulse shadow-lg z-10 border-2 border-zinc-950">
-                            NUEVO
-                          </span>
+                          <div className="absolute top-6 right-6 flex items-center gap-2">
+                            <span className="text-[10px] font-bold text-yellow-500 tracking-widest uppercase">NUEVO</span>
+                            <span className="relative flex h-2 w-2">
+                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+                              <span className="relative inline-flex rounded-full h-2 w-2 bg-yellow-500"></span>
+                            </span>
+                          </div>
                         )}
 
-                        <div className="flex justify-between items-start mb-5">
-                          <div className="bg-zinc-800/80 w-14 h-14 rounded-xl flex items-center justify-center group-hover:bg-yellow-500 transition-colors duration-300">
-                            {/* Usamos el componente Icon corregido */}
-                            <Icon className="text-gray-300 group-hover:text-black transition-colors" size={28} />
+                        <div className="flex flex-col mb-6 relative z-10">
+                          <div className="bg-gradient-to-br from-zinc-800 to-zinc-900 w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500 shadow-inner border border-white/5 mb-6 group-hover:border-yellow-500/30 group-hover:shadow-[0_0_20px_rgba(234,179,8,0.2)]">
+                            <Icon className="text-gray-400 group-hover:text-yellow-500 transition-colors duration-500" size={32} strokeWidth={1.5} />
                           </div>
-                          <div className="text-right">
-                              <span className="block text-xs text-gray-500 uppercase tracking-wide">Desde</span>
-                              <span className="text-xl font-bold text-yellow-500 font-mono tracking-tight">
-                              {service.price}
-                              </span>
-                          </div>
+                          
+                          <h4 className="text-xl font-bold text-white mb-3 group-hover:text-yellow-500 transition-colors">
+                            {service.title}
+                          </h4>
+                          <p className="text-gray-400 text-sm leading-relaxed flex-grow">
+                            {service.desc}
+                          </p>
                         </div>
                         
-                        <h4 className="text-lg font-bold text-white mb-2 group-hover:text-yellow-500 transition-colors">
-                          {service.title}
-                        </h4>
-                        <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
-                          {service.desc}
-                        </p>
-                        
-                        <div className="mt-auto pt-4 border-t border-white/5">
+                        <div className="mt-auto pt-6 border-t border-white/5 flex items-center justify-between relative z-10">
+                          <div className="flex flex-col">
+                            <span className="text-[10px] text-gray-500 uppercase tracking-widest font-semibold mb-1">Inversión desde</span>
+                            <span className="text-2xl font-black text-white font-mono tracking-tight group-hover:text-yellow-500 transition-colors">
+                              {service.price}
+                            </span>
+                          </div>
+
                           <a 
                               href={`${COMPANY_INFO.whatsappUrl}?text=Hola, me interesa cotizar el servicio de ${service.title}`} 
                               target="_blank" 
-                              className="w-full flex items-center justify-between text-sm font-bold text-gray-300 hover:text-white transition-colors group/link"
+                              className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-gray-300 hover:bg-yellow-500 hover:text-black hover:scale-110 transition-all duration-300 group/link border border-white/5 hover:border-yellow-500"
+                              title="Cotizar Servicio"
                           >
-                              <span>Cotizar Servicio</span>
-                              <span className="bg-white/10 p-1 rounded-full group-hover/link:bg-yellow-500 group-hover/link:text-black transition-colors">
-                                  <ArrowRight size={14} />
-                              </span>
+                              <ArrowRight size={20} className="group-hover/link:translate-x-1 transition-transform" />
                           </a>
                         </div>
                       </motion.div>

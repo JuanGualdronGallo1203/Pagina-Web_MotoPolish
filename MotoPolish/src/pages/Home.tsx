@@ -125,6 +125,7 @@ export default function Home() {
                           <img 
                             src={service.image} 
                             alt={service.title} 
+                            loading="lazy"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                           />
                           {/* Gradiente oscuro para que el texto sea legible */}
@@ -225,6 +226,7 @@ export default function Home() {
                   <img 
                     src={prod.image} 
                     alt={prod.title} 
+                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 z-0"
                   />
                 </div>
